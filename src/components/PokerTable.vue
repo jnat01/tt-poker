@@ -90,7 +90,7 @@
       return {
         deck: [],
         dealtHands: [],
-        playerCount: 0,
+        playerCount: 2,
         isCreated: false,
         isShuffled: false,
         isDealt: false,
@@ -136,7 +136,7 @@
         this.deck = []
         this.dealtHands = []
         this.dealtHandRanks = []
-        this.playerCount = 0
+        this.playerCount = 2
         this.isCreated = false
         this.isShuffled = false
         this.isDealt = false
@@ -162,6 +162,30 @@
           }
         }
 
+        // TEST HAND - DELETE WHEN DONE
+        // this.dealtHands.push([
+        //   {
+        //     rank: '10',
+        //     suit: 'hearts',
+        //   },
+        //   {
+        //     rank: 'J',
+        //     suit: 'hearts',
+        //   },
+        //   {
+        //     rank: 'Q',
+        //     suit: 'hearts',
+        //   },
+        //   {
+        //     rank: 'K',
+        //     suit: 'hearts',
+        //   },
+        //   {
+        //     rank: 'A',
+        //     suit: 'hearts',
+        //   },
+        // ])
+
         this.isDealt = true
       },
       /**
@@ -180,12 +204,12 @@
         // if (check.isRoyalFlush(hand)) return 10;
         // if (check.isStraightFlush(hand)) return 9;
         if (check.isFourOfAKind(hand)) return 8;
-        // if (check.isFullHouse(hand)) return 7;
-        // if (check.isFlush(hand)) return 6;
+        if (check.isFullHouse(hand)) return 7;
+        if (check.isFlush(hand)) return 6;
         // if (check.isStraight(hand)) return 5;
         if (check.isThreeOfAKind(hand)) return 4;
         if (check.isTwoPair(hand)) return 3;
-        if (check.isPair(hand)) return 3;
+        if (check.isPair(hand)) return 2;
         return 1;
       }
     },

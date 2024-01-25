@@ -13,13 +13,15 @@ export function isFourOfAKind(hand) {
   return Object.values(rankCounts).includes(4)
 }
 
-// export function isFullHouse(hand) {
+export function isFullHouse(hand) {
+  const rankCounts = countRanks(hand)
 
-// }
+  return Object.values(rankCounts).includes(3) && Object.values(rankCounts).includes(2)
+}
 
-// export function isFlush(hand) {
-
-// }
+export function isFlush(hand) {
+  return hand.every(card => card.suit === hand[0].suit)
+}
 
 // export function isStraight(hand) {
 
@@ -43,7 +45,7 @@ export function isPair(hand) {
   return Object.values(rankCounts).includes(2)
 }
 
-export function countRanks(hand) {
+function countRanks(hand) {
   const rankCounts = {}
 
   for (const card of hand) {
