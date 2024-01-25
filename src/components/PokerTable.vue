@@ -53,6 +53,13 @@
       >
         Deal Hands
       </button>
+      <button
+        class="tt-poker-table--primary-button"
+        @click="findWinner()"
+        :disabled="!isDealt"
+      >
+        Find Winner(s)
+      </button>
     </div>
 
     <div class="tt-poker-table--container tt-poker-table--player-hands">
@@ -69,6 +76,7 @@
 <script>
   import ranks from '../constants/ranks'
   import suits from '../constants/suits'
+  import * as check from '../utils/check'
   import DeckOfCards from './DeckOfCards.vue'
   import PlayerHand from './PlayerHand.vue'
 
@@ -127,6 +135,7 @@
       reset() {
         this.deck = []
         this.dealtHands = []
+        this.dealtHandRanks = []
         this.playerCount = 0
         this.isCreated = false
         this.isShuffled = false
@@ -154,6 +163,30 @@
         }
 
         this.isDealt = true
+      },
+      /**
+       * Finds the winner
+       *
+       * Assigns a strength value to each players hand
+       * Then determines the highest strength across the hands and identifies the winners
+       */
+      findWinner() {
+        const handRanks = this.dealtHands.map(hand => this.checkHands(hand))
+        this.dealtHandRanks = handRanks
+        console.log(this.dealtHandRanks)
+
+      },
+      checkHands(hand) {
+        // if (check.isRoyalFlush(hand)) return 10;
+        // if (check.isStraightFlush(hand)) return 9;
+        if (check.isFourOfAKind(hand)) return 8;
+        // if (check.isFullHouse(hand)) return 7;
+        // if (check.isFlush(hand)) return 6;
+        // if (check.isStraight(hand)) return 5;
+        if (check.isThreeOfAKind(hand)) return 4;
+        if (check.isTwoPair(hand)) return 3;
+        if (check.isPair(hand)) return 3;
+        return 1;
       }
     },
   }
