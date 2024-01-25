@@ -1,24 +1,12 @@
 # tt-poker
 
-## Project setup
-```
-yarn
-```
+## Project
+- `Node v20`
+- `Vue3`
+- `yarn`
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Steps
+1. `git clone` this repo
+2. `cd tt-poker`
+3. `yarn` to install dependencies
+4. `yarn serve` to compile for development (with hot reload) at `localhost:8080`
