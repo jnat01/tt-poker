@@ -6,27 +6,26 @@
 <template>
   <div class="tt-poker-table">
     <div class="tt-poker-table--container">
-
+      <button
+        v-if="!isCreated"
+        class="tt-poker-table--primary-button"
+        @click="create()"
+        :disabled="isDealt"
+      >
+        Create
+      </button>
+      <button
+        v-if="isCreated"
+        class="tt-poker-table--secondary-button"
+        @click="shuffle()"
+        :disabled="isDealt"
+      >
+        Shuffle
+      </button>
+      <button @click="reset()">
+        Reset
+      </button>
     </div>
-    <button
-      v-if="!isCreated"
-      class="tt-poker-table--primary-button"
-      @click="create()"
-      :disabled="isDealt"
-    >
-      Create
-    </button>
-    <button
-      v-if="isCreated"
-      class="tt-poker-table--secondary-button"
-      @click="shuffle()"
-      :disabled="isDealt"
-    >
-      Shuffle
-    </button>
-    <button @click="reset()">
-      Reset
-    </button>
 
     <div class="tt-poker-table--container">
       <DeckOfCards :deck="deck" />
