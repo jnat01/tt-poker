@@ -1,3 +1,6 @@
+<!-- 
+  PlayerHand
+ -->
 <template>
   <div class="tt-player-hand">
     <div class="tt-player-hand--number">
@@ -18,7 +21,7 @@
   import PlayingCard from './PlayingCard.vue';
 
   export default {
-    name: 'PlayerHands',
+    name: 'PlayerHand',
     components: {
       PlayingCard,
     },
