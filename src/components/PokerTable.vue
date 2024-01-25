@@ -1,3 +1,8 @@
+<!-- 
+  PokerTable
+  - Where all the action happens :)
+  - Handles creating, shuffling, dealing, finding the winner, and reseting the table.
+ -->
 <template>
   <div class="tt-poker-table">
     <div class="tt-poker-table--container">
@@ -52,7 +57,7 @@
     </div>
 
     <div class="tt-poker-table--container tt-poker-table--player-hands">
-      <PlayerHands
+      <PlayerHand
         v-for="(hand, i) in dealtHands"
         :key="`player-${i}`"
         :player="i"
@@ -66,13 +71,13 @@
   import ranks from '../constants/ranks'
   import suits from '../constants/suits'
   import DeckOfCards from './DeckOfCards.vue'
-  import PlayerHands from './PlayerHands.vue'
+  import PlayerHand from './PlayerHand.vue'
 
   export default {
     name: 'PokerTable',
     components: {
     DeckOfCards,
-    PlayerHands,
+    PlayerHand,
 },
     data() {
       return {
@@ -85,6 +90,9 @@
       }
     },
     methods: {
+      /**
+       * Creates the deck
+       */
       create() {
         this.deck = []
 
@@ -97,6 +105,9 @@
         this.isCreated = true
         this.isShuffled = false
       },
+      /**
+       * Shuffles the deck
+       */
       shuffle() {
         if (this.deck.length < 1) {
           alert('deck has not been created.')
@@ -111,6 +122,9 @@
 
         this.isShuffled = true
       },
+      /**
+       * Resets the entire poker table
+       */
       reset() {
         this.deck = []
         this.dealtHands = []
@@ -119,6 +133,9 @@
         this.isShuffled = false
         this.isDealt = false
       },
+      /**
+       * Deals 5 cards per player, 1 card at a time
+       */
       deal() {
         if (this.playerCount < 2 || this.playerCount > 10) {
           alert('player count must be between 2 and 10.')
@@ -137,7 +154,6 @@
           }
         }
 
-        console.log(this.dealtHands)
         this.isDealt = true
       }
     },

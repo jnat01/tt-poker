@@ -1,3 +1,12 @@
+<!-- 
+  PlayingCard Component
+  - Just a simple and reusuable way to render the playing cards and use unicode to display the suits
+  - Used for the deck and player hand rendering
+
+  Props:
+  - rank - card display value
+  - suit - card suit
+ -->
 <template>
   <div class="tt-card">
     {{ rank }}

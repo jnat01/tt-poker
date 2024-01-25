@@ -1,5 +1,11 @@
 <!-- 
-  PlayerHand
+  PlayerHand Component
+  - Used to render each players hand and their player number
+  - leverages the PlayingCard component
+
+  Props:
+  - player - number to identify the player
+  - hand - provided by iterating upon the dealtHands in PokerTable 
  -->
 <template>
   <div class="tt-player-hand">

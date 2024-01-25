@@ -1,3 +1,11 @@
+<!-- 
+  DeckOfCards Component
+  - More of a wrapper component to render the deck of cards
+  - Helps to remove code from the PokerTable component
+  
+  Props:
+  - deck array to iterate through and display each PlayingCard
+ -->
 <template>
   <div class="tt-deck-of-cards">
     <PlayingCard
