@@ -22,7 +22,10 @@
       >
         Shuffle
       </button>
-      <button @click="reset()">
+      <button
+        class="tt-poker-table--reset-button"
+        @click="reset()"
+      >
         Reset
       </button>
     </div>
@@ -56,7 +59,7 @@
       <button
         class="tt-poker-table--primary-button"
         @click="findWinner()"
-        :disabled="!isDealt"
+        :disabled="!isDealt || isComplete"
       >
         Find Winner(s)
       </button>
@@ -69,6 +72,7 @@
         :player="i"
         :hand="hand"
         :score="handScores[i]"
+        :is-winner="checkScore(handScores[i])"
       />
     </div>
   </div>
@@ -92,10 +96,12 @@
         deck: [],
         dealtHands: [],
         handScores: [],
+        topScore: 0,
         playerCount: 2,
         isCreated: false,
         isShuffled: false,
         isDealt: false,
+        isComplete: false,
       }
     },
     methods: {
@@ -138,10 +144,12 @@
         this.deck = []
         this.dealtHands = []
         this.handScores = []
+        this.topScore = 0
         this.playerCount = 2
         this.isCreated = false
         this.isShuffled = false
         this.isDealt = false
+        this.isComplete = false
       },
       /**
        * Deals 5 cards per player, 1 card at a time
@@ -174,8 +182,10 @@
        */
       findWinner() {
         this.handScores = this.dealtHands.map(hand => this.checkHands(hand))
-        // TODO - identify high score
-        // TODO - identify winner(s)
+
+        this.topScore = Math.max(...this.handScores)
+
+        this.isComplete = true
       },
       /**
        * Leveraged in the findWinner method and uses the check.js util methods to evaluate the hands 
@@ -191,6 +201,12 @@
         if (check.isTwoPair(hand)) return 3;
         if (check.isPair(hand)) return 2;
         return 1;
+      },
+      /**
+       * Checks to see if the player score matches the top score
+       */
+      checkScore(score) {
+        return this.topScore === score
       }
     },
   }
@@ -229,6 +245,15 @@
       background-color: #EFEFEF;
       border-color: lightgray;
       cursor: not-allowed;
+    }
+  }
+
+  &--reset-button {
+    border: 1px solid gray;
+    background-color: lightcoral;
+
+    &:hover {
+      background-color: coral;
     }
   }
 

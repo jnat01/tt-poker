@@ -8,7 +8,10 @@
   - hand - provided by iterating upon the dealtHands in PokerTable 
  -->
 <template>
-  <div class="tt-player-hand">
+  <div
+    class="tt-player-hand"
+    :class="getWinnerClass"
+  >
     <div class="tt-player-hand--info">
       Player {{ player }}
     </div>
@@ -44,10 +47,14 @@
         }
       },
       score: Number,
+      isWinner: Boolean,
     },
     computed: {
       getScore() {
         return this.score > 0 ? this.score : '?'
+      },
+      getWinnerClass() {
+        return this.isWinner ? 'tt-player-hand--winner' : ''
       }
     }
   }
@@ -55,10 +62,14 @@
 
 <style lang="scss" scoped>
 .tt-player-hand {
-  border: 1px solid black;
+  border: 3px solid lightgray;
   margin: 16px auto;
   padding: 8px;
   max-width: 320px;
+
+  &--winner {
+    border: 4px solid green
+  }
 
   &--info {
     margin-bottom: 8px;
