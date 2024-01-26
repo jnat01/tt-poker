@@ -1,6 +1,13 @@
 <template>
   <h1>TT Poker</h1>
   <PokerTable />
+  <a
+    class="tt-app--do-not-click"
+    target="_blank"
+    href="https://www.youtube.com/watch?v=eBGIQ7ZuuiU"
+  >
+    Do Not Click 😬
+  </a>
 </template>
 
 <script>
@@ -23,6 +30,23 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+// the fun anchor tag
+.tt-app--do-not-click {
+  background-color: lightcyan;
+  border: 1px solid lightblue;
+  color: black;
+  font-size: 10px;
+  padding: 4px 8px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 // app wide poker styling
