@@ -97,7 +97,7 @@
         dealtHands: [],
         handScores: [],
         topScore: 0,
-        playerCount: 2,
+        playerCount: 5,
         isCreated: false,
         isShuffled: false,
         isDealt: false,
@@ -145,7 +145,6 @@
         this.dealtHands = []
         this.handScores = []
         this.topScore = 0
-        this.playerCount = 2
         this.isCreated = false
         this.isShuffled = false
         this.isDealt = false

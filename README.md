@@ -36,7 +36,7 @@
     - Shuffle - Will shuffle the deck of cards and will be disabled once cards are dealt. Can continue to shuffle until dealt.
     - Deal Cards - Will deal 5 cards to each player, 1 card at a time and will be disabled once cards are dealt.
     - Find Winner(s) - Will evaluate each players hand to determine who is(are) the winner(s), and will be disabled once identified.
-    - Reset - Will reset the PokerTable data and allow for the game to start fresh.
+    - Reset - Will reset the PokerTable data and allow for the game to start fresh. Will not reset playerCount so that it's easier to re-deal with the same count as before.
 
 ## Constants
 #### ranks
