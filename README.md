@@ -38,6 +38,12 @@
     - Find Winner(s) - Will evaluate each players hand to determine who is(are) the winner(s), and will be disabled once identified.
     - Reset - Will reset the PokerTable data and allow for the game to start fresh. Will not reset playerCount so that it's easier to re-deal with the same count as before.
 
+## Utils
+#### check
+- Functions used to evaluate the player hands
+- Each handType has an independent function which will return truthy if successful or falsey if failed
+- Some functions rely on others to avoid dupliciative code. Such as, the `isStraightFlush` which is using the `isStraight` and `isFlush` functions for its evaluation
+
 ## Constants
 #### ranks
 - Contains an array of the different ranks
