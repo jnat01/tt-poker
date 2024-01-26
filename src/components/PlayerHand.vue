@@ -18,6 +18,9 @@
     <div class="tt-player-hand--info">
       Score: {{ getScore }}
     </div>
+    <div class="tt-player-hand--info">
+      Hand: {{ getHandType }}
+    </div>
     <div class="tt-player-hand--cards">
       <PlayingCard
         v-for="(card, i) in hand"
@@ -31,6 +34,7 @@
 
 <script>
   import PlayingCard from './PlayingCard.vue';
+  import handTypes from '../constants/handTypes';
 
   export default {
     name: 'PlayerHand',
@@ -55,6 +59,9 @@
       },
       getWinnerClass() {
         return this.isWinner ? 'tt-player-hand--winner' : ''
+      },
+      getHandType() {
+        return this.score > 0 ? handTypes[this.score] : '?'
       }
     }
   }
@@ -82,3 +89,4 @@
   }
 }
 </style>
+../constants/handTypes
