@@ -9,8 +9,11 @@
  -->
 <template>
   <div class="tt-player-hand">
-    <div class="tt-player-hand--number">
+    <div class="tt-player-hand--info">
       Player {{ player }}
+    </div>
+    <div class="tt-player-hand--info">
+      Score: {{ getScore }}
     </div>
     <div class="tt-player-hand--cards">
       <PlayingCard
@@ -40,7 +43,13 @@
           return value.length == 5
         }
       },
+      score: Number,
     },
+    computed: {
+      getScore() {
+        return this.score > 0 ? this.score : '?'
+      }
+    }
   }
 </script>
 
@@ -51,7 +60,7 @@
   padding: 8px;
   max-width: 320px;
 
-  &--number {
+  &--info {
     margin-bottom: 8px;
   }
 

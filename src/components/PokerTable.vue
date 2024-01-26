@@ -68,6 +68,7 @@
         :key="`player-${i}`"
         :player="i"
         :hand="hand"
+        :score="handScores[i]"
       />
     </div>
   </div>
@@ -90,7 +91,7 @@
       return {
         deck: [],
         dealtHands: [],
-        handRanks: [],
+        handScores: [],
         playerCount: 2,
         isCreated: false,
         isShuffled: false,
@@ -136,7 +137,7 @@
       reset() {
         this.deck = []
         this.dealtHands = []
-        this.handRanks = []
+        this.handScores = []
         this.playerCount = 2
         this.isCreated = false
         this.isShuffled = false
@@ -172,8 +173,9 @@
        * Then determines the highest strength across the hands and identifies the winners
        */
       findWinner() {
-        this.handRanks = this.dealtHands.map(hand => this.checkHands(hand))
-        console.log(this.handRanks)
+        this.handScores = this.dealtHands.map(hand => this.checkHands(hand))
+        // TODO - identify high score
+        // TODO - identify winner(s)
       },
       /**
        * Leveraged in the findWinner method and uses the check.js util methods to evaluate the hands 
