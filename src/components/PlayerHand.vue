@@ -13,7 +13,15 @@
     :class="getWinnerClass"
   >
     <div class="tt-player-hand--info">
-      Player {{ player }}
+      <span v-if="isWinner">
+        🎉 🎉
+      </span>
+      <span class="tt-player-hand--player-number">
+        Player {{ player }}
+      </span>
+      <span v-if="isWinner">
+        🐓 🍽️
+      </span>
     </div>
     <div class="tt-player-hand--info">
       Score: {{ getScore }}
@@ -76,6 +84,11 @@
 
   &--winner {
     border: 4px solid green
+  }
+
+  &--player-number {
+    margin-left: 8px;
+    margin-right: 8px;
   }
 
   &--info {
