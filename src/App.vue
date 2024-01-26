@@ -1,5 +1,7 @@
 <template>
-  <h1>TT Poker</h1>
+  <div class="tt-app--header">
+    TT Poker
+  </div>
   <PokerTable />
   <a
     class="tt-app--do-not-click"
@@ -22,30 +24,42 @@ export default {
 </script>
 
 <style lang="scss">
-// #app boilerplate app styling
+body {
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  position: relative;
+  min-height: 100vh
 }
 
-// the fun anchor tag
-.tt-app--do-not-click {
-  background-color: lightcyan;
-  border: 1px solid lightblue;
-  color: black;
-  font-size: 10px;
-  padding: 4px 8px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  text-decoration: none;
+.tt-app {
+  &--header {
+    font-size: 48px;
+    font-weight: 500;
+    padding-top: 16px;
+  }
 
-  &:hover {
-    cursor: pointer;
+  // the fun anchor tag
+  &--do-not-click {
+    background-color: lightcyan;
+    border: 1px solid lightblue;
+    color: black;
+    font-size: 10px;
+    padding: 4px 8px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
